@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       name: ui-app
-  replicas: {{ param01 }}
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: ui-app
-        image: {{ image }}:{{ image_tag }}
+        image: mizunoas/epoch-sample-api:master.20210708183910
         ports:
         - name: http
           containerPort: 8000
@@ -41,7 +41,7 @@ spec:
     port: 8000
     protocol: TCP
     targetPort: 8000
-    nodePort: {{ param02 }}
+    nodePort: 31001
   selector:
     name: ui-app
 
@@ -59,6 +59,6 @@ spec:
     port: 8000
     protocol: TCP
     targetPort: 8000
-    nodePort: {{ param03 }}
+    nodePort: 32001
   selector:
     name: ui-app
